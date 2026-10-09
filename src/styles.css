@@ -1,0 +1,61 @@
+@import "tailwindcss" source("../");
+
+@theme {
+  --font-display: "Cinzel", Georgia, serif;
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+  --color-ink: #0b0a14;
+  --color-night: #13111f;
+  --color-steel: #1d1a2c;
+  --color-ember: #ff7a3d;
+  --color-gold: #f4c542;
+  --color-arcane: #8f6bff;
+}
+
+html {
+  background: var(--color-ink);
+  color-scheme: dark;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  background: var(--color-ink);
+  color: #e9e6f2;
+  -webkit-font-smoothing: antialiased;
+}
+
+.text-glow {
+  text-shadow: 0 0 24px rgb(255 122 61 / 0.45);
+}
+
+.bg-rune {
+  background-image:
+    radial-gradient(circle at 20% 0%, rgb(143 107 255 / 0.18), transparent 45%),
+    radial-gradient(circle at 85% 30%, rgb(255 122 61 / 0.14), transparent 40%);
+}
+
+.clip-blade {
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 18px), calc(100% - 18px) 100%, 0 100%);
+}
+
+@keyframes callout {
+  0% { transform: scale(2.2); opacity: 0; }
+  25% { transform: scale(1); opacity: 1; }
+  80% { transform: scale(1.05); opacity: 1; }
+  100% { transform: scale(1.1); opacity: 0; }
+}
+.animate-callout {
+  animation: callout 1.1s ease-out forwards;
+}
+
+.touch-controls {
+  display: none;
+}
+@media (pointer: coarse) {
+  .touch-controls {
+    display: flex;
+  }
+  .keyboard-hint {
+    display: none;
+  }
+}
